@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3  # Update to v3
+        uses: actions/checkout@v3  # Use the latest version
 
       - name: Set up Python
-        uses: actions/setup-python@v4  # Update to v4
+        uses: actions/setup-python@v4  # Use the latest version
         with:
           python-version: '3.9'  # Specify the Python version you want
 
@@ -28,7 +28,7 @@ jobs:
         run: ls -R
 
       - name: Run seafood scraper
-        run: python ./seafood.py || { echo 'Script failed'; exit 1; }  # Change to seafood.py
+        run: python ./seafood.py || { echo 'Script failed'; exit 1; }  # Running the correct file
 
       - name: Commit and push CSV file
         run: |
