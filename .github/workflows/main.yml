@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4  # Use v4
         with:
-          python-version: '3.9'  # Specify the Python version you want
+          python-version: '3.10'  # Specify the Python version you want
 
       - name: Install dependencies
         run: |
@@ -27,7 +27,7 @@ jobs:
         run: ls -R
 
       - name: Run scraper
-        run: python ./scraper.py  # Ensure the path is correct
+        run: python ./main.py  # Ensure the path is correct
 
       - name: Commit and push CSV file
         run: |
