@@ -1,12 +1,12 @@
 name: Weekly Scraper
 
 permissions:
-  contents: write  
+  contents: write  # Allow the action to commit changes
 
 on:
-  workflow_dispatch:  
+  workflow_dispatch:  # Allows manual trigger
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: '0 0 * * 0'  # This runs every Sunday at midnight
 
 jobs:
   scrape:
@@ -14,21 +14,21 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3  
+        uses: actions/checkout@v3  # Update to v3
 
       - name: Set up Python
-        uses: actions/setup-python@v4 
+        uses: actions/setup-python@v4  # Update to v4
         with:
-          python-version: '3.9'  
+          python-version: '3.9'  # Specify the Python version you want
 
       - name: Install necessary packages
         run: pip install requests beautifulsoup4 pandas
 
-      - name: List files  
+      - name: List files  # Debugging step
         run: ls -R
 
-      - name: Run scraper
-        run: python ./scraper.py || { echo 'Script failed'; exit 1; }
+      - name: Run seafood scraper
+        run: python ./seafood.py || { echo 'Script failed'; exit 1; }  # Change to seafood.py
 
       - name: Commit and push CSV file
         run: |
